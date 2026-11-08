@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:ImageClipToFile"
         Title="ImageClipToFile"
+        Icon="app.ico"
         Width="760" Height="560" MinWidth="460" MinHeight="340"
         Loaded="Window_Loaded" Closing="Window_Closing">
 
@@ -14,6 +15,7 @@
         <KeyBinding Key="R" Modifiers="Ctrl+Shift" Command="{x:Static local:MainWindow.ToggleReview}" />
         <KeyBinding Key="T" Modifiers="Ctrl+Shift" Command="{x:Static local:MainWindow.ToggleTopmost}" />
         <KeyBinding Key="O" Modifiers="Ctrl" Command="{x:Static local:MainWindow.OpenFolder}" />
+        <KeyBinding Key="F1" Command="{x:Static local:MainWindow.ShowAbout}" />
     </Window.InputBindings>
 
     <Window.CommandBindings>
@@ -23,6 +25,7 @@
         <CommandBinding Command="{x:Static local:MainWindow.ToggleReview}" Executed="ToggleReview_Executed" />
         <CommandBinding Command="{x:Static local:MainWindow.ToggleTopmost}" Executed="ToggleTopmost_Executed" />
         <CommandBinding Command="{x:Static local:MainWindow.OpenFolder}" Executed="OpenFolder_Executed" />
+        <CommandBinding Command="{x:Static local:MainWindow.ShowAbout}" Executed="ShowAbout_Executed" />
     </Window.CommandBindings>
 
     <Grid Margin="12">
@@ -36,6 +39,10 @@
         <!-- Target folder -->
         <DockPanel Grid.Row="0">
             <TextBlock DockPanel.Dock="Left" Text="Save to" VerticalAlignment="Center" Margin="0,0,8,0" />
+            <Button DockPanel.Dock="Right" Margin="6,0,0,0" Padding="8,6" Command="{x:Static local:MainWindow.ShowAbout}"
+                    ToolTip="About ImageClipToFile and updates (F1)" AutomationProperties.Name="About ImageClipToFile">
+                <TextBlock Style="{StaticResource Glyph}" Text="&#xE946;" />
+            </Button>
             <Button DockPanel.Dock="Right" Margin="6,0,0,0" Padding="8,6" Click="OpenFolder_Click"
                     ToolTip="Open the folder in File Explorer (Ctrl+O)">
                 <TextBlock Style="{StaticResource Glyph}" Text="&#xE838;" />

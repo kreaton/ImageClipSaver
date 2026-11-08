@@ -1,13 +1,24 @@
 # ImageClipToFile
 
+[![Release](https://img.shields.io/github/v/release/kreaton/ImageClipToFile)](https://github.com/kreaton/ImageClipToFile/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 ![Windows](https://img.shields.io/badge/platform-Windows-lightgrey)
 ![.NET 10](https://img.shields.io/badge/.NET-10-lightgrey)
 ![WPF](https://img.shields.io/badge/UI-WPF-lightgrey)
 
+![ImageClipToFile: every screenshot you take, saved as a file](images/banner.png)
+
 **Take screenshots and have each one saved as a file automatically.**
 
 ImageClipToFile watches the Windows clipboard. When an image arrives (from Win+Shift+S, Print Screen, the Snipping Tool, "Copy image" in a browser, or any other app), it is saved as a PNG in a folder you choose. No pasting, no Save dialog.
+
+## Install
+
+**[Download the installer](https://github.com/kreaton/ImageClipToFile/releases/latest/download/ImageClipToFile-win-Setup.exe)** and run it. If your PC doesn't have the .NET 10 Desktop Runtime yet, the installer adds it.
+
+The installer isn't code-signed, so Windows may warn you about it. To continue, choose **More info → Run anyway**.
+
+To get a newer version later, click the **ⓘ** button (or press F1) and choose **Check for updates**. To remove the app, use **Settings → Apps → Installed apps** in Windows.
 
 ## How to use it
 
@@ -49,12 +60,13 @@ If you close the app while a clip is waiting, it asks whether to save it first.
 - The title bar shows how many clips you have saved in this session.
 - The app follows the Windows light or dark setting.
 - Your folder, switches and window position are remembered in `%LocalAppData%\ImageClipToFile\settings.json`.
+- The version, build time and commit are shown under **ⓘ** (F1).
 
 ---
 
 ## For developers
 
-The app is built with WPF on .NET 10, using the built-in Fluent theme, and has no NuGet dependencies.
+The app is built with WPF on .NET 10, using the built-in Fluent theme. Installs and updates use [Velopack](https://velopack.io).
 
 Build and run it with the .NET 10 SDK:
 
@@ -71,6 +83,31 @@ Or open `ImageClipToFile.slnx` in Visual Studio 2026.
 - Each image is encoded as PNG once. Its SHA-256 hash is used to skip repeats within two seconds; the same bytes are written to disk, or held while you review the clip.
 - `AppSettings` loads and saves the JSON settings file.
 
+### Releases
+
+Every push to `main` runs [.github/workflows/release.yml](.github/workflows/release.yml), which calls [BuildRelease.ps1](ImageClipToFile/BuildRelease.ps1). The script publishes a framework-dependent win-x64 build, packs it with Velopack's `vpk`, and uploads it as a GitHub release with the installer and delta packages.
+
+- The version is `Major.Minor.Patch`. Set Major.Minor by hand in [Directory.Build.props](Directory.Build.props). The patch is one higher than the latest release with that Major.Minor.
+- Pushes that only touch docs can skip a release with `[skip ci]` in the commit message.
+- To build an installer locally without uploading anything:
+
+  ```bash
+  dotnet tool install -g vpk --version 1.2.161
+  ```
+
+  ```bash
+  pwsh ImageClipToFile/BuildRelease.ps1 -LocalOnly
+  ```
+
+  The installer ends up in `ImageClipToFile/Releases`.
+
+## Credits
+
+- Made by Per Hejndorf.
+- Installer and updates by [Velopack](https://velopack.io) (MIT).
+- Interface icons from Segoe Fluent Icons, which ships with Windows.
+- Built with help from [Claude Code](https://claude.com/claude-code).
+
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE) © 2026 Per Hejndorf

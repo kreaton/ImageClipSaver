@@ -27,6 +27,7 @@ public partial class MainWindow : Window
     public static readonly RoutedCommand ToggleReview = new();
     public static readonly RoutedCommand ToggleTopmost = new();
     public static readonly RoutedCommand OpenFolder = new();
+    public static readonly RoutedCommand ShowAbout = new();
 
     private readonly AppSettings _settings = AppSettings.Load();
     private HwndSource? _hwndSource;
@@ -270,6 +271,8 @@ public partial class MainWindow : Window
         _settings.Save();
         StatusText.Text = $"Clips will be saved in {dialog.FolderName}";
     }
+
+    private void ShowAbout_Executed(object sender, ExecutedRoutedEventArgs e) => new AboutWindow { Owner = this }.ShowDialog();
 
     private void OpenFolder_Click(object sender, RoutedEventArgs e) => OpenSaveFolder();
     private void OpenFolder_Executed(object sender, ExecutedRoutedEventArgs e) => OpenSaveFolder();

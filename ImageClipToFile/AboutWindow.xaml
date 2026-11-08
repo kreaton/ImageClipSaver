@@ -1,0 +1,43 @@
+<Window x:Class="ImageClipToFile.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About ImageClipToFile"
+        Icon="app.ico"
+        SizeToContent="WidthAndHeight" ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+    <StackPanel Margin="28,24,28,20" MinWidth="320">
+        <StackPanel Orientation="Horizontal">
+            <Image x:Name="AppIcon" Width="64" Height="64" VerticalAlignment="Top"
+                   RenderOptions.BitmapScalingMode="HighQuality" />
+            <StackPanel Margin="18,2,0,0" VerticalAlignment="Center">
+                <TextBlock Text="ImageClipToFile" FontSize="22" FontWeight="SemiBold" />
+                <TextBlock x:Name="VersionText" Margin="0,2,0,0"
+                           Foreground="{DynamicResource TextFillColorSecondaryBrush}"
+                           ToolTip="Version · build time · commit" />
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock Margin="0,18,0,0" TextWrapping="Wrap" MaxWidth="380" HorizontalAlignment="Left"
+                   Text="Saves every screenshot or image you copy as a PNG file in a folder you choose, or shows it first so you can decide." />
+
+        <TextBlock Margin="0,14,0,0" FontWeight="SemiBold">
+            <Run x:Name="CopyrightText" />
+            <Run Text="·" />
+            <Hyperlink x:Name="LicenseLink" RequestNavigate="OnLink">MIT License</Hyperlink>
+        </TextBlock>
+        <TextBlock Margin="0,2,0,0" Foreground="{DynamicResource TextFillColorSecondaryBrush}">
+            <Run Text="Built with" />
+            <Hyperlink NavigateUri="https://velopack.io" RequestNavigate="OnLink">Velopack</Hyperlink><Run Text=". Icons from Segoe Fluent Icons." />
+        </TextBlock>
+        <TextBlock Margin="0,2,0,0">
+            <Hyperlink x:Name="RepoLink" RequestNavigate="OnLink">
+                <Run x:Name="RepoLinkText" />
+            </Hyperlink>
+        </TextBlock>
+
+        <StackPanel Orientation="Horizontal" Margin="0,20,0,0" HorizontalAlignment="Right">
+            <Button x:Name="UpdateButton" Content="Check for updates" Margin="0,0,8,0" Click="OnCheckForUpdates" />
+            <Button Content="OK" IsDefault="True" IsCancel="True" MinWidth="96" Style="{DynamicResource AccentButtonStyle}" />
+        </StackPanel>
+    </StackPanel>
+</Window>
