@@ -24,12 +24,12 @@ jobs:
         with:
           dotnet-version: 10.0.x
 
-      # Keep this version in step with the Velopack package in ImageClipToFile.csproj.
+      # Keep this version in step with the Velopack package in ImageClipSaver.csproj.
       - name: Install vpk
         run: dotnet tool install -g vpk --version 1.2.161
 
       - name: Build, pack and publish
         shell: pwsh
-        run: ./ImageClipToFile/BuildRelease.ps1
+        run: ./ImageClipSaver/BuildRelease.ps1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

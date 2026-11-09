@@ -1,20 +1,20 @@
-# ImageClipToFile
+# ImageClipSaver
 
-[![Release](https://img.shields.io/github/v/release/kreaton/ImageClipToFile)](https://github.com/kreaton/ImageClipToFile/releases/latest)
+[![Release](https://img.shields.io/github/v/release/kreaton/ImageClipSaver)](https://github.com/kreaton/ImageClipSaver/releases/latest)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 ![Windows](https://img.shields.io/badge/platform-Windows-lightgrey)
 ![.NET 10](https://img.shields.io/badge/.NET-10-lightgrey)
 ![WPF](https://img.shields.io/badge/UI-WPF-lightgrey)
 
-![ImageClipToFile: every screenshot you take, saved as a file](images/banner.png)
+![ImageClipSaver: every screenshot you take, saved as a file](images/banner.png)
 
 **Take screenshots and have each one saved as a file automatically.**
 
-ImageClipToFile watches the Windows clipboard. When an image arrives (from Win+Shift+S, Print Screen, the Snipping Tool, "Copy image" in a browser, or any other app), it is saved as a PNG in a folder you choose. No pasting, no Save dialog.
+ImageClipSaver watches the Windows clipboard. When an image arrives (from Win+Shift+S, Print Screen, the Snipping Tool, "Copy image" in a browser, or any other app), it is saved as a PNG in a folder you choose. No pasting, no Save dialog.
 
 ## Install
 
-**[Download the installer](https://github.com/kreaton/ImageClipToFile/releases/latest/download/ImageClipToFile-win-Setup.exe)** and run it. If your PC doesn't have the .NET 10 Desktop Runtime yet, the installer adds it.
+**[Download the installer](https://github.com/kreaton/ImageClipSaver/releases/latest/download/ImageClipSaver-win-Setup.exe)** and run it. If your PC doesn't have the .NET 10 Desktop Runtime yet, the installer adds it.
 
 The installer isn't code-signed, so Windows may warn you about it. To continue, choose **More info → Run anyway**.
 
@@ -22,7 +22,7 @@ To get a newer version later, click the **ⓘ** button (or press F1) and choose 
 
 ## How to use it
 
-1. Start ImageClipToFile.
+1. Start ImageClipSaver.
 2. Click **Choose…** and pick the folder the images should go in. The default is `Pictures\ImageClips`. The folder is created if it doesn't exist, and the app remembers your choice.
 3. Take screenshots as usual, for example with **Win+Shift+S** or **Print Screen**. Each image is saved straight away and shown in the window.
 4. Click the folder button (or press **Ctrl+O**) to open the folder in File Explorer.
@@ -59,7 +59,7 @@ If you close the app while a clip is waiting, it asks whether to save it first.
 - If an app announces the same image several times in a row, it is only saved once.
 - The title bar shows how many clips you have saved in this session.
 - The app follows the Windows light or dark setting.
-- Your folder, switches and window position are remembered in `%LocalAppData%\ImageClipToFile\settings.json`.
+- Your folder, switches and window position are remembered in `%LocalAppData%\ImageClipSaver\settings.json`.
 - The version, build time and commit are shown under **ⓘ** (F1).
 
 ---
@@ -71,10 +71,10 @@ The app is built with WPF on .NET 10, using the built-in Fluent theme. Installs 
 Build and run it with the .NET 10 SDK:
 
 ```bash
-dotnet run --project ImageClipToFile/ImageClipToFile.csproj
+dotnet run --project ImageClipSaver/ImageClipSaver.csproj
 ```
 
-Or open `ImageClipToFile.slnx` in Visual Studio 2026.
+Or open `ImageClipSaver.slnx` in Visual Studio 2026.
 
 ### How it works
 
@@ -85,7 +85,7 @@ Or open `ImageClipToFile.slnx` in Visual Studio 2026.
 
 ### Releases
 
-Every push to `main` runs [.github/workflows/release.yml](.github/workflows/release.yml), which calls [BuildRelease.ps1](ImageClipToFile/BuildRelease.ps1). The script publishes a framework-dependent win-x64 build, packs it with Velopack's `vpk`, and uploads it as a GitHub release with the installer and delta packages.
+Every push to `main` runs [.github/workflows/release.yml](.github/workflows/release.yml), which calls [BuildRelease.ps1](ImageClipSaver/BuildRelease.ps1). The script publishes a framework-dependent win-x64 build, packs it with Velopack's `vpk`, and uploads it as a GitHub release with the installer and delta packages.
 
 - The version is `Major.Minor.Patch`. Set Major.Minor by hand in [Directory.Build.props](Directory.Build.props). The patch is one higher than the latest release with that Major.Minor.
 - Pushes that only touch docs can skip a release with `[skip ci]` in the commit message.
@@ -96,10 +96,10 @@ Every push to `main` runs [.github/workflows/release.yml](.github/workflows/rele
   ```
 
   ```bash
-  pwsh ImageClipToFile/BuildRelease.ps1 -LocalOnly
+  pwsh ImageClipSaver/BuildRelease.ps1 -LocalOnly
   ```
 
-  The installer ends up in `ImageClipToFile/Releases`.
+  The installer ends up in `ImageClipSaver/Releases`.
 
 ## Credits
 

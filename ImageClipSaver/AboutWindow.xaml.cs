@@ -5,12 +5,12 @@ using System.Windows.Navigation;
 using Velopack;
 using Velopack.Sources;
 
-namespace ImageClipToFile;
+namespace ImageClipSaver;
 
 public partial class AboutWindow : Window
 {
     // Public GitHub repo whose releases BuildRelease.ps1 uploads to
-    public const string RepoUrl = "https://github.com/kreaton/ImageClipToFile";
+    public const string RepoUrl = "https://github.com/kreaton/ImageClipSaver";
 
     private readonly UpdateManager _updateManager = new(new GithubSource(RepoUrl, accessToken: null, prerelease: false));
 

@@ -9,7 +9,7 @@ using System.Windows.Interop;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 
-namespace ImageClipToFile;
+namespace ImageClipSaver;
 
 public partial class MainWindow : Window
 {
@@ -77,7 +77,7 @@ public partial class MainWindow : Window
         if (_pendingPng != null)
         {
             var answer = MessageBox.Show(this, "The clip you are reviewing hasn't been saved. Save it before closing?",
-                "ImageClipToFile", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+                "ImageClipSaver", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             if (answer == MessageBoxResult.Cancel || (answer == MessageBoxResult.Yes && !SavePendingClip()))
             {
                 e.Cancel = true;
@@ -179,7 +179,7 @@ public partial class MainWindow : Window
 
             File.WriteAllBytes(path, png);
             _savedCount++;
-            Title = $"ImageClipToFile – {_savedCount} saved";
+            Title = $"ImageClipSaver – {_savedCount} saved";
             return path;
         }
         catch (Exception ex) when (ex is IOException or UnauthorizedAccessException or ArgumentException or NotSupportedException)

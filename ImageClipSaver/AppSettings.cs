@@ -1,14 +1,20 @@
 using System.IO;
 using System.Text.Json;
 
-namespace ImageClipToFile;
+namespace ImageClipSaver;
 
 /// <summary>
-/// Small JSON settings file in %LocalAppData%\ImageClipToFile.
+/// Small JSON settings file in %LocalAppData%\ImageClipSaver.
 /// </summary>
 internal sealed class AppSettings
 {
     private static readonly string FilePath = Path.Combine(
+        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+        "ImageClipSaver",
+        "settings.json");
+
+    // Where the app kept its settings before it was renamed from ImageClipToFile
+    private static readonly string LegacyFilePath = Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
         "ImageClipToFile",
         "settings.json");
@@ -31,8 +37,9 @@ internal sealed class AppSettings
     {
         try
         {
-            if (File.Exists(FilePath))
-                return JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(FilePath)) ?? new AppSettings();
+            var path = File.Exists(FilePath) ? FilePath : LegacyFilePath;
+            if (File.Exists(path))
+                return JsonSerializer.Deserialize<AppSettings>(File.ReadAllText(path)) ?? new AppSettings();
         }
         catch (Exception ex) when (ex is IOException or JsonException or UnauthorizedAccessException)
         {

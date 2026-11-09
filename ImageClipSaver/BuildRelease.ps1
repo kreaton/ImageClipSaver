@@ -12,8 +12,8 @@ param([switch]$LocalOnly)
 Set-Location -Path $PSScriptRoot
 $ErrorActionPreference = 'Stop'
 
-$AppName = "ImageClipToFile"
-$RepoUrl = "https://github.com/kreaton/ImageClipToFile"
+$AppName = "ImageClipSaver"
+$RepoUrl = "https://github.com/kreaton/ImageClipSaver"
 $PublishDir = ".\publish"
 $ReleasesDir = ".\Releases"
 

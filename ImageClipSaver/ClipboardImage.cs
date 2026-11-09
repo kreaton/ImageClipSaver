@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace ImageClipToFile;
+namespace ImageClipSaver;
 
 /// <summary>
 /// Reads an image from the clipboard. WPF's Clipboard.GetImage() mangles many screenshots

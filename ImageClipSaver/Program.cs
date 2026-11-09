@@ -1,6 +1,6 @@
 using Velopack;
 
-namespace ImageClipToFile;
+namespace ImageClipSaver;
 
 internal static class Program
 {

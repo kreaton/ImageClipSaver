@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Reflection;
 
-namespace ImageClipToFile;
+namespace ImageClipSaver;
 
 /// <summary>Version, commit and build time stamped in by Directory.Build.props.</summary>
 public static class BuildInfo
