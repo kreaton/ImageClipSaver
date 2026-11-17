@@ -92,7 +92,7 @@ Every push to `main` runs [.github/workflows/release.yml](.github/workflows/rele
 - To build an installer locally without uploading anything:
 
   ```bash
-  dotnet tool install -g vpk --version 1.2.161
+  dotnet tool install -g vpk --version 1.3.39-g8d2844f
   ```
 
   ```bash

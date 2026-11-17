@@ -8,7 +8,7 @@ _Last reviewed: 2026-11-17. Versions are the ones resolved in this repository at
 
 | Library | Version | Licence | Source | Modified |
 |---|---|---|---|---|
-| Velopack | 1.2.161 | MIT | [NuGet](https://www.nuget.org/packages/Velopack/1.2.161) · [source](https://github.com/velopack/velopack) | No |
+| Velopack | 1.3.39-g8d2844f | MIT | [NuGet](https://www.nuget.org/packages/Velopack/1.3.39-g8d2844f) · [source](https://github.com/velopack/velopack) | No |
 
 ## Build, test and tooling (not distributed)
 
