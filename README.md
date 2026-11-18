@@ -5,6 +5,9 @@
 ![Windows](https://img.shields.io/badge/platform-Windows-lightgrey)
 ![.NET 10](https://img.shields.io/badge/.NET-10-lightgrey)
 ![WPF](https://img.shields.io/badge/UI-WPF-lightgrey)
+[![GitHub stars](https://img.shields.io/github/stars/kreaton/ImageClipSaver?style=flat&logo=github&color=yellow)](https://github.com/kreaton/ImageClipSaver/stargazers)
+
+⭐ If ImageClipSaver earns a place on your machine, [star it on GitHub](https://github.com/kreaton/ImageClipSaver) — it's free, made by one developer, and stars are how other people find it.
 
 ![ImageClipSaver: every screenshot you take, saved as a file](images/banner.png)
 
